@@ -195,10 +195,26 @@ function step4(){
 	});
 }
 
+function step5(){
+	actors.forEach(function(actor) {
+		events.forEach(function(event) {
+			if(actor.eventId == event.id){
+				actor.payment[0].amount = event.price;
+				actor.payment[1].amount = 0.7*event.price;
+				actor.payment[2].amount = event.commission.insurance;
+				actor.payment[3].amount = event.commission.treasury;
+				actor.payment[4].amount = event.commission.privateaser + event.persons;
+			}
+		});
+		console.log(actor.payment);
+	});
+}
+
 step1();
 step2();
 step3();
 step4();
+step5();
 console.log(bars);
 console.log(events);
 console.log(actors);

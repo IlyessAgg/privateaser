@@ -157,7 +157,29 @@ function step1(){
 	});
 }
 
+function step2(){
+	events.forEach(function(event) {
+		bars.forEach(function(bar) {
+			if(event.barId == bar.id){
+				var pricePerPeople = event.persons*bar.pricePerPerson;
+				if(event.persons > 60){
+					pricePerPeople = pricePerPeople*0.5;
+				}
+				else if(event.persons > 20){
+					pricePerPeople = pricePerPeople*0.7;
+				}
+				else if(event.persons > 10){
+					pricePerPeople = pricePerPeople*0.9;
+				}
+				event.price = event.time*bar.pricePerHour + pricePerPeople;
+			}
+		});
+		console.log(event.price);
+	});
+}
+
 step1();
+step2();
 console.log(bars);
 console.log(events);
 console.log(actors);

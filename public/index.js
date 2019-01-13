@@ -178,8 +178,19 @@ function step2(){
 	});
 }
 
+function step3(){
+	events.forEach(function(event) {
+		var commission = 0.3*event.price;
+		event.commission.insurance = commission/2;
+		event.commission.treasury = event.persons;
+		event.commission.privateaser = commission - event.commission.treasury - event.commission.insurance;		
+		console.log(event.commission);
+	});
+}
+
 step1();
 step2();
+step3();
 console.log(bars);
 console.log(events);
 console.log(actors);

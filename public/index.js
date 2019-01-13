@@ -188,9 +188,17 @@ function step3(){
 	});
 }
 
+function step4(){
+	events.forEach(function(event) {
+	if(event.options.deductibleReduction) event.price = event.price + event.persons;
+	console.log(event.price);
+	});
+}
+
 step1();
 step2();
 step3();
+step4();
 console.log(bars);
 console.log(events);
 console.log(actors);
